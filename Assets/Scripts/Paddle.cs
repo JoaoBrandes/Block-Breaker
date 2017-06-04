@@ -17,4 +17,12 @@ public class Paddle : MonoBehaviour {
 		this.transform.position = paddlePos;
 
 	}
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Ball")
+        {
+            other.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 1f), ForceMode2D.Impulse);
+        }
+    }
 }

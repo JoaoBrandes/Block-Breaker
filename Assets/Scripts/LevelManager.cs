@@ -12,9 +12,12 @@ public class LevelManager : MonoBehaviour {
 
 	void Start ()
 	{
+
+        Brick.resetBrickCount();
+
 		if (_instance == null) {
 			_instance = this;
-		}
+		} 
 	}
 	
 	public void LoadLevel (string name)
@@ -28,4 +31,10 @@ public class LevelManager : MonoBehaviour {
 		Debug.Log("Quitting");
 		Application.Quit();
 	}
+
+    public void LoadNextLevel()
+    {
+        Debug.Log("Loading next level");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
